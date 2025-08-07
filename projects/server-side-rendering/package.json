@@ -1,5 +1,5 @@
 {
-  "name": "server-side-renderer",
+  "name": "server-side-rendering",
   "version": "1.0.0",
   "description": "React server side rendering example",
   "license": "ISC",
