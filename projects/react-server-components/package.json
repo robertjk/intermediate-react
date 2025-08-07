@@ -1,0 +1,12 @@
+{
+  "name": "react-server-components",
+  "version": "1.0.0",
+  "description": "Basic example of React Server Components without framework",
+  "license": "ISC",
+  "author": "Robert J. Kusznier",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
