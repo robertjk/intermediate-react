@@ -1,13 +1,14 @@
 {
   "name": "server-side-rendering",
   "version": "1.0.0",
-  "description": "React server side rendering example",
+  "description": "Basic server side rendering example",
   "license": "ISC",
   "author": "Robert J. Kusznier",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "vite build",
+    "start": "node server.js"
   },
   "dependencies": {
     "@fastify/static": "^8.2.0",
