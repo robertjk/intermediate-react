@@ -5,3 +5,7 @@ Code from Frontend Masters course ["Intermediate React, v6"](https://frontendmas
 ## Companion website
 
 [https://intermediate-react-v6.holt.courses/](https://intermediate-react-v6.holt.courses/)
+
+## Projects
+
+There are multiple projects stored within that repo, all located in `projects/`.
