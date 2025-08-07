@@ -3,4 +3,6 @@ import { createElement } from "react";
 
 import { App } from "./App.js";
 
-hydrateRoot(document.getElementById("root"), createElement(App));
+const ROOT_ID = "root";
+
+hydrateRoot(document.getElementById(ROOT_ID), createElement(App));
