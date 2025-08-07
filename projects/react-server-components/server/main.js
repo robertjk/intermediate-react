@@ -1,12 +1,11 @@
-import reactServerRegister from "react-server-dom-webpack/node-register";
-import babelRegister from "@babel/register";
+const reactServerregister = require("react-server-dom-webpack/node-register");
+reactServerregister();
 
-import { runServer } from "./server";
-
-reactServerRegister();
+const babelRegister = require("@babel/register");
 babelRegister({
   ignore: [/[\\\/](dist|server|node_modules)[\\\/]/],
   plugins: ["@babel/transform-modules-commonjs"],
 });
 
-runServer();
+const { startServer } = require("./server");
+startServer();

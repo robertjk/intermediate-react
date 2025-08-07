@@ -4,8 +4,8 @@ import { createFromFetch } from "react-server-dom-webpack/client";
 import "doodle.css/doodle.css";
 
 console.log("Fetching flight response...");
-const root = createRoot(document.getElementById("root"));
-const appFlight = createFromFetch(fetch("/react-flight"));
+const root = createRoot(document.getElementById("app-root"));
+const App = createFromFetch(fetch("/react-flight"));
 
-console.log("Rendering root:", appFlight);
-root.render(appFlight);
+console.log("Rendering app root:", App);
+root.render(App);

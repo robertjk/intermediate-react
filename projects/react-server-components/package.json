@@ -4,7 +4,7 @@
   "description": "Basic example of React Server Components without a framework",
   "license": "ISC",
   "author": "Robert J. Kusznier",
-  "type": "module",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "dev:client": "webpack --watch",

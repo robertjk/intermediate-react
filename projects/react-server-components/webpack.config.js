@@ -1,11 +1,11 @@
-import path from "node:path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import ReactServerWebpackPlugin from "react-server-dom-webpack/plugin";
+const path = require("node:path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ReactServerWebpackPlugin = require("react-server-dom-webpack/plugin");
 
 const mode = process.env.NODE_ENV || "development";
-const developmentMode = mode === "development";
+const development = mode === "development";
 
-export default {
+const config = {
   mode,
   entry: "./src/Client.jsx",
   module: {
@@ -33,10 +33,10 @@ export default {
     new ReactServerWebpackPlugin({ isServer: false }),
   ],
   output: {
-    chunkFilename: developmentMode
+    chunkFilename: development
       ? "[id].chunk.js"
       : "[id].[contenthash].chunk.js",
-    path: path.resolve(import.meta.dirname, "dist"),
+    path: path.resolve(__dirname, "dist"),
     filename: "[name].js",
     clean: true,
   },
@@ -44,3 +44,5 @@ export default {
     runtimeChunk: "single",
   },
 };
+
+module.exports = config;

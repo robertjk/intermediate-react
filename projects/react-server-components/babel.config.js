@@ -1,14 +1,13 @@
-const developmentMode =
-  !process.env.NODE_ENV || process.env.NODE_ENV !== "development";
+const development = (process.env.NODE_ENV || "development") === "development";
 
-export default {
+module.exports = {
   presets: [
     [
       "@babel/preset-react",
       {
         runtime: "automatic",
         useSpread: true,
-        development: developmentMode,
+        development: true,
       },
     ],
   ],
