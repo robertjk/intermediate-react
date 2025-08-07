@@ -11,3 +11,4 @@ Code from Frontend Masters course ["Intermediate React, v6"](https://frontendmas
 There are multiple projects stored within that repo, all located in `projects/`:
 
 - `static-site-generator`: Small example of how static generation of sites work
+- `server-side-renderer`: Small example of how server side rendering works
