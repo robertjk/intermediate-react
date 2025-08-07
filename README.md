@@ -8,4 +8,6 @@ Code from Frontend Masters course ["Intermediate React, v6"](https://frontendmas
 
 ## Projects
 
-There are multiple projects stored within that repo, all located in `projects/`.
+There are multiple projects stored within that repo, all located in `projects/`:
+
+- `static-site-generator`: Small example of how static generation of sites work
