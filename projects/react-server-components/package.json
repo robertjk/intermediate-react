@@ -1,13 +1,14 @@
 {
   "name": "react-server-components",
   "version": "1.0.0",
-  "description": "Basic example of React Server Components without framework",
+  "description": "Basic example of React Server Components without a framework",
   "license": "ISC",
   "author": "Robert J. Kusznier",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:client": "webpack --watch",
+    "dev:server": "node --watch --conditions react-server server/main.js"
   },
   "dependencies": {
     "@babel/core": "^7.26.8",
