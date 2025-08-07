@@ -1,7 +1,6 @@
 import path from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import ReacServerWebpackPlugin from "react-server-dom-webpack/plugin";
-import React from "react";
+import ReactServerWebpackPlugin from "react-server-dom-webpack/plugin";
 
 const mode = process.env.NODE_ENV || "development";
 const developmentMode = mode === "development";
@@ -39,6 +38,7 @@ export default {
       : "[id].[contenthash].chunk.js",
     path: path.resolve(import.meta.dirname, "dist"),
     filename: "[name].js",
+    clean: true,
   },
   optimization: {
     runtimeChunk: "single",
