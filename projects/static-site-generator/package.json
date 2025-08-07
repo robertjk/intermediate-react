@@ -1,0 +1,17 @@
+{
+  "name": "static-site-generator",
+  "version": "1.0.0",
+  "description": "React static site generation example",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "keywords": [],
+  "author": "Robert J. Kusznier",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  }
+}
