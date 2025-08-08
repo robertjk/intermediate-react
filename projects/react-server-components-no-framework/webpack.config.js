@@ -7,7 +7,7 @@ const development = mode === "development";
 
 const config = {
   mode,
-  entry: "./src/client.js",
+  entry: "./index.js",
   module: {
     rules: [
       {
