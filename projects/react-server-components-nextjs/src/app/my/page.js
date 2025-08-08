@@ -1,8 +1,8 @@
 import { AsyncDatabase } from "promised-sqlite3";
 
 // This assumes you are user with ID 1
- 
-export default async function MyNotes() {
+
+export default async function MyNotesPage() {
   async function fetchNotes() {
     const db = await AsyncDatabase.open("./notes.db");
     const notesFromUserPromise = db.all(
