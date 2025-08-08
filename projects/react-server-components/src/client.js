@@ -1,7 +1,7 @@
-import { createRoot } from "react-dom/client";
-import { createFromFetch } from "react-server-dom-webpack/client";
+const { createRoot } = require("react-dom/client");
+const { createFromFetch } = require("react-server-dom-webpack/client");
 
-import "doodle.css/doodle.css";
+require("doodle.css/doodle.css");
 
 console.log("Fetching flight response...");
 const root = createRoot(document.getElementById("app-root"));
