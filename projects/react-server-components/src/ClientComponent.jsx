@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 function ClientComponent() {
-  console.log("Rendering client component");
+  console.log("Rendering ClientComponent client component");
 
   const [counter, setCounter] = useState(0);
 
