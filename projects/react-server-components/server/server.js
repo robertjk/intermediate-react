@@ -48,9 +48,9 @@ server.get("/react-flight", function reactFlightHandler(request, reply) {
   }
 });
 
-async function startServer() {
+function startServer() {
   try {
-    await server.listen({ port: port });
+    server.listen({ port: port });
   } catch (err) {
     server.log.error(err);
     process.exit(1);
