@@ -3,10 +3,18 @@ import Link from "next/link";
 export default function Home() {
   return (
     <ul>
-      <Link href="/my">My Notes</Link>
-      <Link href="/write">Write a note</Link>
-      <Link href="/teacher">Secret Teacher Feed</Link>
-      <Link href="/who-am-i">Who Am I?!</Link>
+      <li>
+        <Link href="/my">My Notes</Link>
+      </li>
+      <li>
+        <Link href="/write">Write a note</Link>
+      </li>
+      <li>
+        <Link href="/teacher">Secret Teacher Feed</Link>
+      </li>
+      <li>
+        <Link href="/who-am-i">Who Am I?!</Link>
+      </li>
     </ul>
   );
 }
