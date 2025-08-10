@@ -16,3 +16,4 @@ There are multiple projects stored within that repo, all located in `projects/`:
 - `react-server-components-no-framework`: Basic example of React Server Components (RSC) without a
   framework
 - `react-server-components-nextjs`: Basic example of React Server Components (RSC) with Next.js
+- `performance`: How to solve performance problems in React
