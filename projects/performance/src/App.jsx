@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { marked } from "marked";
 
 import MarkdownPreview from "./MarkdownPreview";
@@ -17,8 +17,14 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const options = { text, theme };
-  const render = (text) => marked.parse(text);
+  const options = useMemo(
+    () => ({
+      text,
+      theme,
+    }),
+    [text, theme]
+  );
+  const render = useCallback((text) => marked.parse(text), []);
 
   function handleThemeChange(event) {
     setTheme(event.target.value);
