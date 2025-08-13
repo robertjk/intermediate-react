@@ -1,28 +1,12 @@
-import { useEffect, useState } from "react";
-
 import Score from "./Score";
-import getScore from "./getScore";
+import useScore from "./useScore";
 
 export default function App() {
-  const [isPending, setIsPending] = useState(true);
-  const [game, setGame] = useState(1);
-  const [score, setScore] = useState({ home: "-", away: "-" });
-
-  async function getNewScore(game) {
-    setIsPending(true);
-    setGame(game);
-    const newScore = await getScore(game);
-    setScore(newScore);
-    setIsPending(false);
-  }
+  const { game, setGame, score, isPending } = useScore();
 
   function handleSelectChange(event) {
     setGame(event.target.value);
   }
-
-  useEffect(() => {
-    getNewScore(game);
-  }, [game]);
 
   return (
     <div className="app">
