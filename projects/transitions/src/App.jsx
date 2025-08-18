@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div className="app">
       <h1>Game {game}</h1>
-      <select disabled={isPending} onChange={handleSelectChange}>
+      <select onChange={handleSelectChange}>
         {[1, 2, 3, 4, 5, 6, 7].map((gameId) => (
           <option key={gameId} value={gameId}>
             Game {gameId}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState, useTransition } from "react";
 
 async function getScore(game) {
   const response = await fetch("/score?game=" + game);
@@ -7,17 +7,19 @@ async function getScore(game) {
 }
 
 export default function useScore() {
-  const [isPending, setIsPending] = useState(true);
+  const [isPending, startTransition] = useTransition(true);
   const [game, setGame] = useState(1);
   const [score, setScore] = useState({ home: "-", away: "-" });
 
   useEffect(() => {
     async function getNewScore() {
-      setIsPending(true);
       setGame(game);
-      const newScore = await getScore(game);
-      setScore(newScore);
-      setIsPending(false);
+      startTransition(async () => {
+        const newScore = await getScore(game);
+        startTransition(() => {
+          setScore(newScore);
+        });
+      });
     }
 
     getNewScore();
