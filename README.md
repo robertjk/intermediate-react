@@ -11,10 +11,11 @@ Code from Frontend Masters course
 
 There are multiple projects stored within that repo, all located in `projects/`:
 
-- `static-site-generator`: Basic example of static site generation
-- `server-side-renderer`: Basic example of server side rendering with React
-- `react-server-components-no-framework`: Basic example of React Server Components (RSC) without a
+- `static-site-generator`: Static site generation (SSG) basic example
+- `server-side-renderer`: Server side rendering (SSR) basic example with React
+- `react-server-components-no-framework`: React Server Components (RSC) basic example without a
   framework
-- `react-server-components-nextjs`: Basic example of React Server Components (RSC) with Next.js
-- `performance`: How to solve performance problems in React
-- `transitions`: How smoothly load things in React using `useTransition`
+- `react-server-components-nextjs`: React Server Components (RSC) basic example with Next.js
+- `performance`: Solving performance problems in React
+- `transitions`: Smoothly loading things in React using `useTransition`
+- `optimistic`: Handling optimistic values using `useOptimistic`
