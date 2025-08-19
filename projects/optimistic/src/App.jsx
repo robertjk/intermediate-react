@@ -1,27 +1,35 @@
-import { useEffect, useState } from "react";
+import { useEffect, useOptimistic, useState, useTransition } from "react";
 
 export default function App() {
+  const [_, startTransition] = useTransition();
   const [thoughts, setThoughts] = useState([]);
   const [newThought, setNewThought] = useState("");
+  const [optimisticThoughts, addOptimisticThought] = useOptimistic(
+    thoughts,
+    (oldThoughts, newThought) => [newThought, ...oldThoughts]
+  );
 
   async function postDeepThought() {
-    setNewThought("");
+    startTransition(async () => {
+      addOptimisticThought(`${newThought} (Loading...)`);
+      setNewThought("");
 
-    const response = await fetch("/thoughts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ thought: newThought }),
+      const response = await fetch("/thoughts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ thought: newThought }),
+      });
+
+      if (!response.ok) {
+        alert("This thought was not deep enough. Do better.");
+        return;
+      }
+
+      const { thoughts: newThoughts } = await response.json();
+      setThoughts(newThoughts);
     });
-
-    if (!response.ok) {
-      alert("This thought was not deep enough. Do better.");
-      return;
-    }
-
-    const { thoughts: newThoughts } = await response.json();
-    setThoughts(newThoughts);
   }
 
   useEffect(() => {
@@ -61,7 +69,7 @@ export default function App() {
       </form>
 
       <ul>
-        {thoughts.map((thought, index) => (
+        {optimisticThoughts.map((thought, index) => (
           <li key={`${index}:thought`}>{thought}</li>
         ))}
       </ul>
