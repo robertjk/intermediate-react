@@ -18,5 +18,5 @@ There are multiple projects stored within that repo, all located in `projects/`:
 - `react-server-components-nextjs`: React Server Components (RSC) basic example with Next.js
 - `performance`: Solving performance problems in React
 - `transitions`: Smoothly loading things in React using `useTransition`
-- `optimistic`: Handling optimistic values using `useOptimistic`
-- `deferred`: Handling deferred values using `useDeferredValue`
+- `optimistic-values`: Handling optimistic values using `useOptimistic`
+- `deferred-values`: Handling deferred values using `useDeferredValue`
