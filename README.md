@@ -19,3 +19,4 @@ There are multiple projects stored within that repo, all located in `projects/`:
 - `performance`: Solving performance problems in React
 - `transitions`: Smoothly loading things in React using `useTransition`
 - `optimistic`: Handling optimistic values using `useOptimistic`
+- `deferred`: Handling deferred values using `useDeferredValue`
