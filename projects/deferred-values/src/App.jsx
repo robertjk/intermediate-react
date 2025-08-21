@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useDeferredValue, useReducer } from "react";
 
 import Slider from "./Slider";
 import DisplayImage from "./DisplayImage";
@@ -12,6 +12,8 @@ export default function App() {
     sepia: 0,
   });
 
+  const deferredParameters = useDeferredValue(parameters);
+
   function parametersReducer(parameters, newParameterAction) {
     return {
       ...parameters,
@@ -20,14 +22,12 @@ export default function App() {
   }
 
   const filterStyle = `
-    blur(${parameters.blur}px)
-    brightness(${parameters.brightness}%)
-    contrast(${parameters.contrast}%)
-    saturate(${parameters.saturate}%)
-    sepia(${parameters.sepia}%)
+    blur(${deferredParameters.blur}px)
+    brightness(${deferredParameters.brightness}%)
+    contrast(${deferredParameters.contrast}%)
+    saturate(${deferredParameters.saturate}%)
+    sepia(${deferredParameters.sepia}%)
     `;
-
-  console.log(filterStyle);
 
   const createChangeHandler = (parameter) => (event) => {
     dispatchParametersAction({ [parameter]: Number(event.target.value) });
@@ -40,14 +40,14 @@ export default function App() {
       <ul>
         <Slider
           value={parameters.blur}
-          deferred={parameters.blur}
+          deferred={deferredParameters.blur}
           onChange={createChangeHandler("blur")}
           name="Blur"
           max="20"
         />
         <Slider
           value={parameters.brightness}
-          deferred={parameters.brightness}
+          deferred={deferredParameters.brightness}
           onChange={createChangeHandler("brightness")}
           name="Brightness"
           min="0"
@@ -55,7 +55,7 @@ export default function App() {
         />
         <Slider
           value={parameters.contrast}
-          deferred={parameters.contrast}
+          deferred={deferredParameters.contrast}
           onChange={createChangeHandler("contrast")}
           name="Contrast"
           min="0"
@@ -63,7 +63,7 @@ export default function App() {
         />
         <Slider
           value={parameters.saturate}
-          deferred={parameters.saturate}
+          deferred={deferredParameters.saturate}
           onChange={createChangeHandler("saturate")}
           name="Saturate"
           min="0"
@@ -71,7 +71,7 @@ export default function App() {
         />
         <Slider
           value={parameters.sepia}
-          deferred={parameters.sepia}
+          deferred={deferredParameters.sepia}
           onChange={createChangeHandler("sepia")}
           name="Sepia"
           min="0"
