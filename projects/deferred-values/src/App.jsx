@@ -1,43 +1,37 @@
-import { useState } from "react";
+import { useReducer } from "react";
 
 import Slider from "./Slider";
 import DisplayImage from "./DisplayImage";
 
 export default function App() {
-  // TODO: Use useReducer
-  const [blur, setBlur] = useState(0);
-  const [brightness, setBrightness] = useState(100);
-  const [contrast, setContrast] = useState(100);
-  const [saturate, setSaturate] = useState(100);
-  const [sepia, setSepia] = useState(0);
+  const [parameters, dispatchParametersAction] = useReducer(parametersReducer, {
+    blur: 0,
+    brightness: 100,
+    contrast: 100,
+    saturate: 100,
+    sepia: 0,
+  });
+
+  function parametersReducer(parameters, newParameterAction) {
+    return {
+      ...parameters,
+      ...newParameterAction,
+    };
+  }
 
   const filterStyle = `
-    blur(${blur}px)
-    brightness(${brightness}%)
-    contrast(${contrast}%)
-    saturate(${saturate}%)
-    sepia(${sepia}%)
-  `;
+    blur(${parameters.blur}px)
+    brightness(${parameters.brightness}%)
+    contrast(${parameters.contrast}%)
+    saturate(${parameters.saturate}%)
+    sepia(${parameters.sepia}%)
+    `;
 
-  function handleBlurChange(event) {
-    setBlur(event.target.value);
-  }
+  console.log(filterStyle);
 
-  function handleBrightnessChange(event) {
-    setBrightness(event.target.value);
-  }
-
-  function handleContrastChange(event) {
-    setContrast(event.target.value);
-  }
-
-  function handleSaturateChange(event) {
-    setSaturate(event.target.value);
-  }
-
-  function handleSepiaChange(event) {
-    setSepia(event.target.value);
-  }
+  const createChangeHandler = (parameter) => (event) => {
+    dispatchParametersAction({ [parameter]: Number(event.target.value) });
+  };
 
   return (
     <div className="app">
@@ -45,40 +39,40 @@ export default function App() {
       <DisplayImage filterStyle={filterStyle} />
       <ul>
         <Slider
-          value={blur}
-          deferred={blur}
-          onChange={handleBlurChange}
+          value={parameters.blur}
+          deferred={parameters.blur}
+          onChange={createChangeHandler("blur")}
           name="Blur"
           max="20"
         />
         <Slider
-          value={brightness}
-          deferred={brightness}
-          onChange={handleBrightnessChange}
+          value={parameters.brightness}
+          deferred={parameters.brightness}
+          onChange={createChangeHandler("brightness")}
           name="Brightness"
           min="0"
           max="200"
         />
         <Slider
-          value={contrast}
-          deferred={contrast}
-          onChange={handleContrastChange}
+          value={parameters.contrast}
+          deferred={parameters.contrast}
+          onChange={createChangeHandler("contrast")}
           name="Contrast"
           min="0"
           max="200"
         />
         <Slider
-          value={saturate}
-          deferred={saturate}
-          onChange={handleSaturateChange}
+          value={parameters.saturate}
+          deferred={parameters.saturate}
+          onChange={createChangeHandler("saturate")}
           name="Saturate"
           min="0"
           max="200"
         />
         <Slider
-          value={sepia}
-          deferred={sepia}
-          onChange={handleSepiaChange}
+          value={parameters.sepia}
+          deferred={parameters.sepia}
+          onChange={createChangeHandler("sepia")}
           name="Sepia"
           min="0"
           max="100"
