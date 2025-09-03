@@ -40,7 +40,7 @@ export default function App() {
     }
 
     fetchThoughts();
-  });
+  }, []);
 
   function handleNewThoughtSubmit(event) {
     event.preventDefault();
